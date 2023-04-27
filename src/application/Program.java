@@ -10,11 +10,14 @@ import model.entities.Seller;
 import java.sql.Connection;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
 
 
 public class Program {
 
     public static void main(String[] args) {
+
+        Scanner tc = new Scanner(System.in);
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
         System.out.println("=== Test 1 seller finById ===");
@@ -32,6 +35,7 @@ public class Program {
         list = sellerDao.findAll();
         list.forEach(System.out::println);
 
+
         System.out.println("\n=== Test 4: seller insert ===");
         Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
         sellerDao.insert(newSeller);
@@ -43,6 +47,16 @@ public class Program {
         seller.setEmail("martha@gmail.com");
         sellerDao.update(seller);
         System.out.println("Update completed!");
+
+
+
+
+
+        System.out.println("\n=== Test 6: seller delete ===");
+        System.out.print("Enter the code test ID: ");
+        int id = tc.nextInt();
+        sellerDao.deleteById(id);
+        System.out.println("Delete completed!");
 
 
     }

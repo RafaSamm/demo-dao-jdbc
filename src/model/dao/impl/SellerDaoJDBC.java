@@ -93,7 +93,7 @@ public class SellerDaoJDBC implements SellerDao {
             int rows = st.executeUpdate();
 
             if (rows == 0) {
-                throw new DbException("Error! Rows no exist!");
+                throw new DbException("Error!Don´t rows exist!");
             }
 
 
